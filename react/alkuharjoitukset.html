@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .teht {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      const container = document.querySelector(".js-container");
+      const nimi = "Lenni";
+      /*Tehtävä 4*/
+      const summa = 10 + 8;
+      /*Tehtävä 6*/
+      const postimaksu = 5;
+      const customDiv = (
+        <div>
+          <div>
+            <p class="teht">Tehtävä 1</p>
+            <button>Hyvää Työtä</button>
+            <br />
+          </div>
+
+          <div>
+            <p class="teht">Tehtävä 2</p>
+            <p>Minun nimeni on {nimi}</p>
+            <br />
+          </div>
+
+          <div>
+            <p class="teht">Tehtävä 3</p>
+            <p>
+              Näytönohjain myytävänä <br /> Hinta 500€
+            </p>
+            <br />
+            <button>Lisää ostoskoriin</button>
+            <br />
+          </div>
+
+          <div>
+            <p class="teht">Tehtävä 4</p>
+            <p>
+              T-paita myynnissä 10€ <br />
+              Kaksi pakettia sukkia 4€
+            </p>
+            <br />
+            <button id="button">Osta tuotteet</button>
+            <br />
+          </div>
+
+          <div>
+            <p class="teht">Tehtävä 5 ja 6</p>
+            <p>Tuotteiden hinta on yhteensä {summa}€</p>
+            <br />
+            <p>Postimaksu {postimaksu}€</p>
+            <br />
+            <p>Lopullinen hinta {postimaksu + summa}€</p>
+            <br />
+            <button>Tee tilaus</button>
+          </div>
+        </div>
+      );
+      console.log(summa);
+      ReactDOM.createRoot(container).render(customDiv);
+    </script>
+  </body>
+</html>

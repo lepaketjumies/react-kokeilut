@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Redu React Basics</title>
+  </head>
+  <body>
+    <div class="js-container">
+      <button>Testi</button>
+    </div>
+
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      const customButton = <button>Ecocompeek</button>;
+      const container = document.querySelector(".js-container");
+      const customDiv = (
+        <div>
+          <button>Ecocompeek</button> <br /> <p>Hello World!</p>
+        </div>
+      );
+      ReactDOM.createRoot(container).render(customDiv);
+    </script>
+  </body>
+</html>
