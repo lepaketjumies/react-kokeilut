@@ -25,51 +25,45 @@
       const customDiv = (
         <div>
           <div>
-            <p class="teht">Tehtävä 1</p>
+            <p className="teht">Tehtävä 1a</p>
             <button>Hyvää Työtä</button>
             <br />
           </div>
 
           <div>
-            <p class="teht">Tehtävä 2</p>
+            <p className="teht">Tehtävä 1b</p>
             <p>Minun nimeni on {nimi}</p>
-            <br />
           </div>
 
           <div>
-            <p class="teht">Tehtävä 3</p>
+            <p className="teht">Tehtävä 1c</p>
             <p>
               Näytönohjain myytävänä <br /> Hinta 500€
             </p>
-            <br />
             <button>Lisää ostoskoriin</button>
             <br />
           </div>
 
           <div>
-            <p class="teht">Tehtävä 4</p>
+            <p className="teht">Tehtävä 1d</p>
             <p>
               T-paita myynnissä 10€ <br />
               Kaksi pakettia sukkia 4€
             </p>
-            <br />
+            <p>Tarkista konsoli {console.log(`Summa on ${summa} euroa`)}</p>
             <button id="button">Osta tuotteet</button>
             <br />
           </div>
 
           <div>
-            <p class="teht">Tehtävä 5 ja 6</p>
+            <p className="teht">Tehtävä 5 ja 6</p>
             <p>Tuotteiden hinta on yhteensä {summa}€</p>
-            <br />
             <p>Postimaksu {postimaksu}€</p>
-            <br />
             <p>Lopullinen hinta {postimaksu + summa}€</p>
-            <br />
             <button>Tee tilaus</button>
           </div>
         </div>
       );
-      console.log(summa);
       ReactDOM.createRoot(container).render(customDiv);
     </script>
   </body>
