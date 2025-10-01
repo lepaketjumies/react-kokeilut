@@ -19,10 +19,7 @@
     <script src="babel.js"></script>
     <script type="text/babel">
       const container = document.querySelector(".js-container");
-      function Nappi({ name }) {
-        return <button>{name}</button>;
-      }
-      function App() {
+      function KirjautumisLomake() {
         return (
           <>
             <p>Tervetuloa verkkosivuilleni!</p>
@@ -30,10 +27,13 @@
               <input type="email" id="email" placeholder="Email" />
               <input type="password" id="password" placeholder="Password" />
             </div>
-            <Nappi name="Kirjaudu" />
-            <Nappi name="Luo tili" />
+            <button>Kirjaudu</button>
+            <button>Luo</button>
           </>
         );
+      }
+      function App() {
+        return <KirjautumisLomake />;
       }
 
       ReactDOM.createRoot(container).render(<App />);
