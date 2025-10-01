@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Redu React Basics</title>
+  </head>
+  <body>
+    <div class="js-container">
+      <button>Testi</button>
+    </div>
+
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      function TuoteTiedot({ nimi, hinta, alennettuhinta, kuva }) {
+        return (
+          <>
+            <div>
+              <img src={kuva} alt="{nimi}" width="50" />
+            </div>
+            <p>
+              {nimi}
+              <br />
+              hinta: {hinta}€ <br />
+              {alennettuhinta && <>Alennettu hinta: {alennettuhinta}€</>}
+            </p>
+            <button>Lisää ostoskoriin</button>
+          </>
+        );
+      }
+      function App() {
+        return (
+          <>
+            <TuoteTiedot
+              kuva="sukat.jpg"
+              nimi="Sukat"
+              hinta="10.90"
+              alennettuhinta="5.45"
+            />
+            <TuoteTiedot
+              kuva="tennisball.jpg"
+              nimi="Tennispallot"
+              hinta="6.00"
+            />
+            <TuoteTiedot kuva="tshirt.jpg" nimi="T-paita" hinta="7.99" />
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
