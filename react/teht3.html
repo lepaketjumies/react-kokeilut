@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Redu React Basics</title>
+    <style>
+      .form {
+        display: grid;
+      }
+      .form input {
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      const container = document.querySelector(".js-container");
+      function Nappi({ name }) {
+        return <button>{name}</button>;
+      }
+      function App() {
+        return (
+          <>
+            <p>Tervetuloa verkkosivuilleni!</p>
+            <div className="form">
+              <input type="email" id="email" placeholder="Email" />
+              <input type="password" id="password" placeholder="Password" />
+            </div>
+            <Nappi name="Kirjaudu" />
+            <Nappi name="Luo tili" />
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
