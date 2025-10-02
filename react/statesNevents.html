@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Redu React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      function Nappi({ counter, setCounter }) {
+        function nappi() {
+          setCounter(counter + 1);
+        }
+        return (
+          <div>
+            {counter === 0 ? (
+              <div>
+                <button onClick={nappi}>Nappia ei ole painettu</button>
+              </div>
+            ) : (
+              <div>
+                <button onClick={nappi}>
+                  Nappia on painettu {counter}{" "}
+                  {counter === 1 ? "kerran" : "kertaa"}
+                </button>
+                <br />
+              </div>
+            )}
+          </div>
+        );
+      }
+      function ResetNappi({ counter, setCounter }) {
+        function reset() {
+          setCounter(0);
+        }
+        return (
+          <div>
+            <button onClick={reset}>Resetoi</button>
+          </div>
+        );
+      }
+      function RandomNappi({ counter, setCounter }) {
+        function randomize() {
+          setCounter(Math.floor(Math.random() * 100));
+        }
+        return (
+          <div>
+            <button onClick={randomize}>Random</button>
+          </div>
+        );
+      }
+      function App() {
+        const [counter, setCounter] = React.useState(0);
+        return (
+          <div>
+            <Nappi counter={counter} setCounter={setCounter} />
+            <br />
+            <Nappi counter={counter} setCounter={setCounter} />
+            <br />
+            <ResetNappi counter={counter} setCounter={setCounter} />
+            <br />
+            <RandomNappi counter={counter} setCounter={setCounter} />
+          </div>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

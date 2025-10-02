@@ -12,21 +12,14 @@
     <script src="react-dom.js"></script>
     <script src="babel.js"></script>
     <script type="text/babel">
-      const customButton = <button>Ecocompeek</button>;
-      const container = document.querySelector(".js-container");
+      const customButton = <button>Test</button>;
       const customDiv = (
         <div>
-          <button>Ecocompeek</button>
+          <customButton />
           <p>Hello World!</p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum sed
-            nemo eligendi, exercitationem <br />
-            velit at facilis omnis cupiditate mollitia delectus quisquam
-            voluptatibus qui rem harum veniam <br />
-            amet dignissimos, ipsum odit.
-          </p>
         </div>
       );
+      const container = document.querySelector(".js-container");
       ReactDOM.createRoot(container).render(customDiv);
     </script>
   </body>
