@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="babel.js"></script>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script type="text/babel">
+      function Nappi() {
+        const [message, setMessage] = React.useState("");
+        function sendMessage() {
+          setMessage(message);
+        }
+        function resetMessage() {
+          setMessage("");
+        }
+        function randomMessage() {
+          const names = ["Lenni", "Lepa", "Ketjumies", "Depomies"];
+          const randomName = Math.floor(Math.random() * names.length);
+          setMessage(names[randomName]);
+        }
+        return (
+          <div>
+            <button onClick={randomMessage}>Random</button>
+            <button onClick={resetMessage}>Reset</button>
+            <input
+              type="text"
+              placeholder="Send a message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <p id="message">Hei {message}</p>
+          </div>
+        );
+      }
+      function App() {
+        return <Nappi />;
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

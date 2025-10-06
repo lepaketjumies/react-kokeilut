@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        align-items: center;
+        text-align: center;
+        border: 1px solid black;
+        width: 400px;
+        height: 250px;
+        border-radius: 10px;
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [value, setValue] = React.useState("");
+        const [isKmToMi, setIsKmToMi] = React.useState(true);
+        function switchDirection() {
+          setIsKmToMi(!isKmToMi);
+          setValue("");
+        }
+        function getResult() {
+          const num = parseFloat(value);
+          //Jos numero on tyhjä, palauttaa tyhjän rivin
+          if (isNaN(num)) return "";
+          return isKmToMi
+            ? (num / 1.609).toFixed(2) + " mi"
+            : (num * 1.609).toFixed(2) + " km";
+        }
+        return (
+          <div className="container">
+            <h2>Matkamuunnin</h2>
+            <input
+              type="number"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder={isKmToMi ? "Kilometrit" : "Mailit"}
+            />
+            <button onClick={switchDirection}>
+              {isKmToMi ? "km => mi" : "mi => km"}
+            </button>
+            <div>
+              {value && !isNaN(value) && (
+                <b>
+                  {isKmToMi
+                    ? value + " km = " + getResult()
+                    : value + " mi = " + getResult()}
+                </b>
+              )}
+            </div>
+          </div>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
