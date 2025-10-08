@@ -1,0 +1,31 @@
+.js-container {
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  gap: 20px;
+}
+.js-container input {
+  width: 300px;
+}
+.js-container button {
+  width: 100px;
+}
+.js-container img {
+  vertical-align: middle;
+}
+.send-button{
+  background-color:rgb(25, 135, 84);
+  color:white;
+  padding:12px 20px;
+  margin-left:12px;
+  border:none;
+  border-radius:10px;
+  font-size:15px;
+  cursor:pointer;
+}
+.send-button:hover{
+  background-color:rgb(17, 88, 55);
+}
+.user-input{
+    
+}

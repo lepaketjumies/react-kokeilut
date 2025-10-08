@@ -2,23 +2,7 @@
 <html>
   <head>
     <title>Chatbot</title>
-    <style>
-      .js-container {
-        align-items: center;
-        justify-content: center;
-        display: grid;
-        gap: 20px;
-      }
-      .js-container input {
-        width: 300px;
-      }
-      .js-container button {
-        width: 100px;
-      }
-      .js-container img {
-        vertical-align: middle;
-      }
-    </style>
+    <link rel="stylesheet" href="chatbot.css" />
   </head>
   <body>
     <div class="js-container"></div>
@@ -65,6 +49,14 @@
         }
         // ----------------------------
 
+        function Nappi() {
+          return (
+            <button className="send-button" onClick={sendMessage}>
+              Send
+            </button>
+          );
+        }
+
         return (
           <div>
             <input
@@ -74,6 +66,7 @@
               placeholder="Send a message to Chatbot"
               size="30"
             />
+            <Nappi />
           </div>
         );
       }
@@ -143,6 +136,7 @@
         return (
           <>
             <ChatInput
+              className="chat-input"
               chatMessages={chatMessages}
               setChatMessages={setChatMessages}
             />
