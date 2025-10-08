@@ -58,10 +58,11 @@
         }
 
         return (
-          <div>
+          <div className="user-input-container">
             <input
               onChange={saveInputText}
               onKeyDown={handleKeyDown}
+              className="user-input"
               value={inputText}
               placeholder="Send a message to Chatbot"
               size="30"
@@ -84,10 +85,18 @@
           );
         } */
         return (
-          <div>
-            {sender === "bot" && <img src="completed/bot.png" width="50" />}
-            {message}
-            {sender === "user" && <img src="completed/user.png" width="50" />}
+          <div
+            className={
+              sender === "user" ? "chat-message-user" : "chat-message-bot"
+            }
+          >
+            {sender === "bot" && (
+              <img src="completed/bot.png" className="chat-message-image" />
+            )}
+            <div className="chat-message-text">{message}</div>
+            {sender === "user" && (
+              <img src="completed/user.png" className="chat-message-image" />
+            )}
           </div>
         );
       }
@@ -134,9 +143,8 @@
         // const chatMessages = array[0];
         // const setChatMessages = array[1];
         return (
-          <>
+          <div className="app-container">
             <ChatInput
-              className="chat-input"
               chatMessages={chatMessages}
               setChatMessages={setChatMessages}
             />
@@ -144,7 +152,7 @@
               chatMessages={chatMessages}
               setChatMessages={setChatMessages}
             />
-          </>
+          </div>
         );
       }
       const container = document.querySelector(".js-container");
