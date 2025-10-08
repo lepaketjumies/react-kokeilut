@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        border: 0;
+        border-radius: 10px;
+        color: white;
+        background-color: rgb(25, 135, 84);
+        padding: 15px 20px;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      .on {
+        background-color: green;
+      }
+      .off {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [isOn, setIsOn] = React.useState(true);
+        function switchOnOff() {
+          setIsOn(!isOn);
+        }
+        return isOn === true ? (
+          <button onClick={switchOnOff} className="on">
+            On
+          </button>
+        ) : (
+          <button onClick={switchOnOff} className="off">
+            Off
+          </button>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

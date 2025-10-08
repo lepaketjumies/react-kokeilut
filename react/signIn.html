@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      .inputs {
+        display: grid;
+        gap: 10px;
+      }
+      .inputs input {
+        padding: 10px 10px;
+        border-radius: 10px;
+        border: 0.1 solid black;
+        width: 150px;
+      }
+      .buttons {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+      }
+      .buttons button {
+        padding: 15px 20px;
+        border-radius: 10px;
+        border: 0;
+        color: white;
+        background-color: rgb(0, 123, 255);
+      }
+      .buttons button:hover {
+        cursor: pointer;
+        background-color: rgb(31, 139, 255);
+      }
+      .buttons button:active {
+        background-color: rgb(16, 100, 190);
+      }
+      .password-interaction {
+        display: flex;
+        gap: 15px;
+      }
+      .password-interaction button {
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(255, 94, 0);
+        color: white;
+      }
+      .password-interaction button:hover {
+        cursor: pointer;
+        background-color: rgb(255, 128, 55);
+      }
+      .password-interaction button:active {
+        background-color: rgb(185, 75, 10);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [isHidden, setHidden] = React.useState(true);
+        return (
+          <>
+            <h2>Hello, welcome to my website</h2>
+            <div className="inputs">
+              <input type="email" placeholder="Email" />
+              <div className="password-interaction">
+                <input
+                  type={isHidden ? "password" : "text"}
+                  placeholder="Password"
+                />
+                <button onClick={() => setHidden(!isHidden)}>
+                  {isHidden ? "Show" : "Hidden"}
+                </button>
+              </div>
+            </div>
+
+            <div className="buttons">
+              <button>Log in</button>
+              <button>Sign up</button>
+            </div>
+          </>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
