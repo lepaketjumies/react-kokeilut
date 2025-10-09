@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .center-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: hsl(from #000000 12 5 0);
+      }
+      .container {
+        margin-top: 10em;
+        padding-top: 30px;
+        text-align: center;
+        border: 1px solid black;
+        width: 400px;
+        height: 200px;
+        border-radius: 10px;
+        background: #ccc;
+      }
+      .secondary-container {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+      .secondary-container input {
+        width: 80px;
+      }
+      .secondary-container button {
+        border: 0;
+        padding: 12px 20px;
+      }
+      .secondary-container button:hover {
+        background-color: #ddd;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [value, setValue] = React.useState("");
+        const [isKmToMi, setIsKmToMi] = React.useState(true);
+        function switchDirection() {
+          setIsKmToMi(!isKmToMi);
+          setValue("");
+        }
+        function getResult() {
+          const num = parseFloat(value);
+          //Jos numero on tyhjä, palauttaa tyhjän rivin
+          if (isNaN(num)) return "";
+          return isKmToMi
+            ? (num / 1.609).toFixed(2) + " mi"
+            : (num * 1.609).toFixed(2) + " km";
+        }
+        return (
+          <div className="center-container">
+            <div className="container">
+              <h2>Matkamuunnin</h2>
+              <div className="secondary-container">
+                <input
+                  type="number"
+                  value={value}
+                  min="0"
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (val === "" || parseFloat(val) >= 0) {
+                      setValue(val);
+                    }
+                  }}
+                  placeholder={isKmToMi ? "Kilometrit" : "Mailit"}
+                />
+                <button onClick={switchDirection}>
+                  {isKmToMi ? "km => mi" : "mi => km"}
+                </button>
+              </div>
+              <p>
+                {value && !isNaN(value) && (
+                  <b>
+                    {isKmToMi
+                      ? value + " km = " + getResult()
+                      : value + " mi = " + getResult()}
+                  </b>
+                )}
+              </p>
+            </div>
+          </div>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
