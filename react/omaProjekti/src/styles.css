@@ -1,5 +1,45 @@
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background: linear-gradient(to right, rgb(19, 2, 1), rgb(65, 2, 2));
   font-family: Arial;
+}
+.header {
+  display: flex;
+  background-color: #000000c9;
+  padding: 20px;
+  color: white;
+}
+.header h1 {
+  flex-grow: 1;
+  margin: 0;
+}
+.nav-links {
+  display: flex;
+  justify-content: end;
+  list-style: none;
+  gap: 20px;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+.main {
+  padding: 20px;
+}
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-container {
+  display: flex;
+  gap: 20px;
+  width: 300px;
+}
+.main p {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
