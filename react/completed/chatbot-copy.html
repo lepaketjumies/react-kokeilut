@@ -101,8 +101,15 @@
         );
       }
       function ChatMessages({ chatMessages, setChatMessages }) {
+        const chatMessagesRef = React.useRef(null);
+        React.useEffect(() => {
+          const containerElem = chatMessagesRef.current;
+          if (containerElem) {
+            containerElem.scrollTop = containerElem.scrollHeight;
+          }
+        }, [chatMessages]);
         return (
-          <>
+          <div className="chat-message-container" ref={chatMessagesRef}>
             {chatMessages.map((chatMessage) => {
               return (
                 <ChatMessage
@@ -112,7 +119,7 @@
                 />
               );
             })}
-          </>
+          </div>
         );
       }
 
@@ -144,11 +151,11 @@
         // const setChatMessages = array[1];
         return (
           <div className="app-container">
-            <ChatInput
+            <ChatMessages
               chatMessages={chatMessages}
               setChatMessages={setChatMessages}
-            />
-            <ChatMessages
+            />{" "}
+            <ChatInput
               chatMessages={chatMessages}
               setChatMessages={setChatMessages}
             />
