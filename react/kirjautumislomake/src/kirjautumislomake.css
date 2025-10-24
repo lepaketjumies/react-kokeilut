@@ -1,0 +1,6 @@
+.form {
+  display: grid;
+}
+.form input {
+  width: 150px;
+}

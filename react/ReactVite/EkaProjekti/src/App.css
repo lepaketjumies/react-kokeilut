@@ -1,0 +1,17 @@
+.on {
+  background-color: #00fa3e;
+}
+.off {
+  background-color: #ff3e3e;
+}
+.container {
+  display: grid;
+  width: 150px;
+  gap: 10px;
+}
+button {
+  width: 100px;
+}
+a:hover {
+  cursor: pointer;
+}
