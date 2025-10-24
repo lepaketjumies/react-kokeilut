@@ -1,19 +1,9 @@
-// import { useState } from "react";
+import "./App.css";
 import AddList from "./AddList.jsx";
 export default function App() {
-  // const [count, setCount] = useState(0);
-  // function handleAddCount() {
-  //   setCount(count + 1);
-  // }
-  // function handleSubstractCount() {
-  //   if (count === 0) {
-  //     alert("The count cannot be negative!");
-  //     return;
-  //   }
-  //   setCount(count - 1);
-  // }
   return (
     <div className="container">
+      <h2>Kauppalista</h2>
       <AddList />
     </div>
   );

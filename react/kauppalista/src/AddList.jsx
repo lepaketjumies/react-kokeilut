@@ -1,23 +1,14 @@
+import MyButton from "./MyButton.jsx";
 import { useState } from "react";
 
 export default function List() {
-  const [count, setCount] = useState(0);
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
-  function handleAddCount() {
-    setCount(count + 1);
-  }
-  function handleSubstractCount() {
-    if (count === 0) {
-      alert("Count cannot be negative!");
-      return;
-    }
-    setCount(count - 1);
-  }
+
   function handleAdd() {
     const text = input.trim();
     if (!text) return;
-    setItems([...items, { id: crypto.randomUUID(), text, count: count }]);
+    setItems([...items, { id: crypto.randomUUID(), text }]);
     setInput("");
   }
   return (
@@ -30,16 +21,18 @@ export default function List() {
           }}
           placeholder="Add Item to the shopping list"
         />
-        <button onClick={handleAdd}>Add</button>
+        <button onClick={handleAdd} id="add">
+          Add
+        </button>
       </div>
-      <h2>shopping list</h2>
       <ul>
         {items.map((item) => (
-          <li key={item.id}>
-            {item.text} <b>{count}</b>
-            <button onClick={handleAddCount}>+1</button>
-            <button onClick={handleSubstractCount}>-1</button>
-          </li>
+          <div className="list">
+            <li key={item.id}>
+              {item.text}
+              <MyButton />
+            </li>
+          </div>
         ))}
       </ul>
     </div>
